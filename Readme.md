@@ -7,3 +7,6 @@
 
 # version:
   0.0.1
+
+# achtung!
+you need growl and growlnotify to make it work
