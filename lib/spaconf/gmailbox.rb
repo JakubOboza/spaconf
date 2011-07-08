@@ -13,7 +13,9 @@ module Spaconf
 
     def check_confirmations
       @gmail.inbox.emails(:unread, :from => "bookings@spabreaks.com").each do |email|
-        @growl.notify("[Spabreaks] New booking for: " + email.body.to_s.scan(/The total cost of your booking is &pound;(.+)/).flatten[0])
+        notification = "[Spabreaks] New booking for: " + email.body.to_s.scan(/The total cost of your booking is &pound;(.+)/).flatten[0].to_s
+        puts "#{notification} at #{Time.now.to_s}"
+        @growl.notify( notification )
       end
     end
 
