@@ -7,14 +7,16 @@ login    = line.ask("Enter your login: ")
 password = line.ask("Enter your password:  " ) { |q| q.echo = "*" }
 
 
-box = Spaconf::GmailBox.new(login, password)
+
 while true
   begin
+    box = Spaconf::GmailBox.new(login, password)
     puts "Ping!"
     box.check_confirmations
-    sleep(30)
+    box.logout
+    sleep(45)
   rescue
     break
   end
 end
-box.logout
+
