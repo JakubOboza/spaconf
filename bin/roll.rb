@@ -11,11 +11,11 @@ password = line.ask("Enter your password:  " ) { |q| q.echo = "*" }
 while true
   begin
     box = Spaconf::GmailBox.new(login, password)
-    puts "Ping!"
     box.check_confirmations
     box.logout
     sleep(45)
   rescue
+    puts "The connection is lost ;/"
     break
   end
 end
